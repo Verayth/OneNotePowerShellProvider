@@ -19,7 +19,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -45,6 +45,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,8 +54,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.Microsoft.Office.Interop.OneNote, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Interop.Microsoft.Office.Interop.OneNote.1.1.0.0\lib\net40\Interop.Microsoft.Office.Interop.OneNote.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
@@ -85,17 +94,6 @@
     <Compile Include="Provider\OneNoteXml.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
-    <ItemGroup>
-    <COMReference Include="Microsoft.Office.Interop.OneNote">
-      <Guid>{0EA692EE-BB50-4E3C-AEF0-356D91732725}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
   <ItemGroup>
     <None Include="OneNote Powershell Documentation.onepkg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -103,6 +101,7 @@
     <None Include="OneNote.ps1xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Scripts\ConvertTo-Object.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
